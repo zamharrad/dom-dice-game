@@ -12,7 +12,7 @@ var scores, roundScore, activePlayer, dice;
 
 scores = [0, 0];
 roundScore = 0;
-activePlayer = 1;
+activePlayer = 0;
 
 // document.querySelector("#current-" + activePlayer).textContent = dice;
 
@@ -39,5 +39,22 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
     //add score
     roundScore += dice;
     document.querySelector("#current-" + activePlayer).textContent = roundScore;
+  } else {
+    activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+    roundScore = 0;
+
+    document.getElementById("current-0").textContent = 0;
+    document.getElementById("current-1").textContent = 0;
+
+    // if (activePlayer === 0) {
+    //   activePlayer = 1;
+    // } else {
+    //   activePlayer = 0;
+    // }
+
+    document.querySelector(".player-0-panel").classList.toggle("active");
+    document.querySelector(".player-1-panel").classList.toggle("active");
+
+    document.querySelector(".dice").style.display = "none";
   }
 });
